@@ -143,16 +143,4 @@ class CPU(object):
             result.append(self.CPU_CORES_INFO)
 
             print(self.CPU_CORES_INFO)
-        
-if __name__ == "__main__":
-    ins = CPU()
-    ins.setCpuStatics()
-
-    while True:
-
-        ins.setCpuTimes()
-        sleep(0.5)
-        ins.setCpuTimes()
-
-        ins.setCpuCoreStatics()
-    
+            
