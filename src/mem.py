@@ -28,4 +28,3 @@ class MEMORY(object):
                     self.MEMORY_INFO[key] = value
                     if key == "Cached":
                         break
-                    
