@@ -157,11 +157,3 @@ class PROCESS(object):
                 
                 self.PROCESS_INFO[pid]["cpuUsage"] = self.calcCpuUtilization(pid)
 
-ins = PROCESS()
-
-while True:
-
-    ins.setProcessDynamicStatus()
-    print(ins.PROCESS_INFO)
-    sleep(0.6)
-                
