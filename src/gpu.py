@@ -1,17 +1,18 @@
 #!/usr/bin/python3.12.3
 
-from random import choice
-from pynvml import (
-    nvmlInit,
-    NVMLError,
-    nvmlDeviceGetName,
-    nvmlDeviceGetMemoryInfo,
-    nvmlDeviceGetTemperature,
-    nvmlDeviceGetHandleByIndex,
-)
-from pynvml import (
-    NVML_TEMPERATURE_GPU,
-)
+try:
+    from pynvml import (
+        nvmlInit,
+        NVMLError,
+        nvmlDeviceGetName,
+        NVML_TEMPERATURE_GPU,
+        nvmlDeviceGetMemoryInfo,
+        nvmlDeviceGetTemperature,
+        nvmlDeviceGetHandleByIndex,
+    )
+except ImportError:
+    print("Error: first try pip install -r requirements.txt then try again.")
+    
 
 class GPU(object):
 
@@ -43,9 +44,8 @@ class GPU(object):
         """setting gpu info by each iteration."""
         
         gpuInfo: dict = self.GPU_INFO.copy()
-        gpuInfo.pop("initializing")
 
-        convertMemorySize = lambda memorySize: f"{int(memorySize) / self.GB: .1f}G" if len(str(memorySize)) > 9 else f"{int(memorySize) / self.MB: .0f}M"
+        convertMemorySize = lambda memorySize: f"{int(memorySize) / self.GB: .1f}G" if memorySize > self.MB else f"{int(memorySize) / self.MB: .0f}M"
         
         try:
             memInfo = nvmlDeviceGetMemoryInfo(self.handle)
@@ -56,7 +56,5 @@ class GPU(object):
         except NVMLError:
             pass
 
-        print(gpuInfo)
-        
         return gpuInfo
     
