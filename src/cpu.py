@@ -1,12 +1,8 @@
 #!/usr/bin/python3.12.3
 
-try:
-    from time import sleep
-    from os import listdir, sysconf, sysconf_names
-except ImportError:
-    print("your device is not supported.")
-    exit()
 
+from time import sleep
+from os import listdir, sysconf, sysconf_names
     
 class CPU(object):
 
@@ -141,6 +137,4 @@ class CPU(object):
             self.CPU_CORES_INFO["utilization"] = self.calcCoreUtilization(core)
 
             result.append(self.CPU_CORES_INFO)
-
-            print(self.CPU_CORES_INFO)
-            
+ 
