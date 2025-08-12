@@ -1,7 +1,8 @@
 #!/usr/bin/python3.12.3
 
-from os import listdir, sysconf, sysconf_names
+
 from time import sleep
+from os import listdir, sysconf, sysconf_names
 
 class PROCESS(object):
 
@@ -156,4 +157,6 @@ class PROCESS(object):
                 self.setProcessCpuTime(pid)
                 
                 self.PROCESS_INFO[pid]["cpuUsage"] = self.calcCpuUtilization(pid)
+        
+        return self.PROCESS_INFO
 
