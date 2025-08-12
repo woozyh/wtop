@@ -130,11 +130,14 @@ class CPU(object):
         convertTemperature = lambda temperature: f"{int(temperature) / 1000: .0f}"    
         
         for core in range(int(self.CPU_INFO["cpu cores"])):
+            coreInfo = self.CPU_CORES_INFO.copy()
             
-            self.CPU_CORES_INFO["id"]          = core
-            self.CPU_CORES_INFO["frequency"]   = convertFrequency(self.setCoreFrequency(core))
-            self.CPU_CORES_INFO["temperature"] = convertTemperature(self.setCoreTemperature())
-            self.CPU_CORES_INFO["utilization"] = self.calcCoreUtilization(core)
+            coreInfo["id"]          = core
+            coreInfo["frequency"]   = convertFrequency(self.setCoreFrequency(core))
+            coreInfo["temperature"] = convertTemperature(self.setCoreTemperature())
+            coreInfo["utilization"] = self.calcCoreUtilization(core)
 
-            result.append(self.CPU_CORES_INFO)
- 
+            result.append(coreInfo)
+            
+        return result
+            
