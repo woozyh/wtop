@@ -63,9 +63,4 @@ class MEMORY(object):
         self.calcUsedMemory()
             
         return self.MEMORY_INFO
-                    
-ins = MEMORY()
-while True:
-    ins.setMemoryInfo()
-    print(ins.MEMORY_INFO)
-    sleep(1)
+    
