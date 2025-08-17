@@ -103,7 +103,7 @@ class Ui(tkinter.Tk):
     def styleConfig(self,) -> None:
         """configuring styles."""
 
-        self.tk.call('lappend', 'auto_path', 'awthemes')
+        self.tk.call('lappend', 'auto_path', 'ui/awthemes')
         self.tk.call('package', 'require', 'awdark')
         
         style = ttk.Style(self)
