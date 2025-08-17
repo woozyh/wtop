@@ -102,21 +102,8 @@ class Ui(tkinter.Tk):
         
     def styleConfig(self,) -> None:
         """configuring styles."""
-        style = ttk.Style(self)
-        style.theme_use("default")
-        style.configure("Treeview",
-                        background="#2e2e2e",
-                        foreground="white",
-                        rowheight=25,
-                        fieldbackground="#2e2e2e",
-                        bordercolor="#444",
-                        borderwidth=1)
-        style.configure("Treeview.Heading",
-                        background="#1e1e1e",
-                        foreground="white",
-                        font=("Arial", 10, "bold"))
-        style.map("Treeview", background=[("selected", "#444444")])
-    
+        pass
+        
     def bindGrids(self,) -> None:
         """griding the built objects"""
 
