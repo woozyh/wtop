@@ -1,7 +1,6 @@
 #!/usr/bin/python3.12.3
 
 
-from time import sleep
 from os import listdir, sysconf, sysconf_names
 
 class PROCESS(object):
@@ -10,8 +9,6 @@ class PROCESS(object):
     MB: int = 2 ** 20
     GB: int = 2 ** 30
 
-    INTERVAL = 0.6
-    
     CLK_TCK: int = sysconf(sysconf_names["SC_CLK_TCK"])
     PAGE_SIZE: int = sysconf(sysconf_names["SC_PAGESIZE"])
 
