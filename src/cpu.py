@@ -1,7 +1,6 @@
 #!/usr/bin/python3.12.3
 
 
-from time import sleep
 from os import listdir, sysconf, sysconf_names
     
 class CPU(object):
@@ -73,7 +72,7 @@ class CPU(object):
                     pass
                 
     def setCpuStatics(self,) -> None:
-        """extracting static cpu information."""
+        """extracting cpu static information."""
 
         with open(self.PATHS["cpuInfo"], "r") as cpuInfo:
             for _ in range(26):
