@@ -17,7 +17,7 @@ class Ui(tkinter.Tk):
         self.title(self.TITLE)
         self.geometry(self.GEOMETRY)
         self.configure(bg = "black")
-
+        
         self.selectedProcess: str = str()
         
         self.generateWidgets()
@@ -159,8 +159,10 @@ class Ui(tkinter.Tk):
     def setProcStatus(self, status: dict) -> None:
         """binding the proc cores status to related graphical object."""
 
+        self.proc.delete(*self.proc.get_children())
+        
         for pid in status:
-
+            
             iid = pid            
             if iid != "pid":
                 if pid in self.proc.get_children():
@@ -169,4 +171,5 @@ class Ui(tkinter.Tk):
                     self.proc.insert("", "end", iid = pid, values = (pid, status[pid]["Name"], status[pid]["command"], status[pid]["Threads"], status[pid]["Uid"], status[pid]["memoryUsage"], status[pid]["cpuUsage"]))
             else:
                 pass
+
 

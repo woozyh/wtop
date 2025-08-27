@@ -49,7 +49,7 @@ class PROCESS(object):
         """getting process list for each iteration."""
 
         processes: list = [pid for pid in listdir("/proc") if pid.isdigit()]
-
+        
         return processes
     
     def setProcessStaticStatus(self, pid: str) -> None:
@@ -141,10 +141,10 @@ class PROCESS(object):
 
         processList = self.getProcessList()
         
-        for pid  in list(self.PROCESS_INFO.keys()):
+        for pid in list(self.PROCESS_INFO.keys()):
             if pid != "pid" and pid not in processList:
                 self.PROCESS_INFO.pop(pid)
-        
+                
         for pid in processList[::-1]:
             if pid not in self.PROCESS_INFO:
                 self.setProcessStaticStatus(pid)
