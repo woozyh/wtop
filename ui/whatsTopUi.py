@@ -102,10 +102,6 @@ class Ui(tkinter.Tk):
         
     def styleConfig(self,) -> None:
         """configuring styles."""
-<<<<<<< HEAD
-        pass
-        
-=======
 
         self.tk.call('lappend', 'auto_path', 'ui/awthemes')
         self.tk.call('package', 'require', 'awdark')
@@ -113,7 +109,6 @@ class Ui(tkinter.Tk):
         style = ttk.Style(self)
         style.theme_use('awdark')
 
->>>>>>> themed
     def bindGrids(self,) -> None:
         """griding the built objects"""
 
