@@ -1,10 +1,10 @@
 #!/usr/bin/python3.12.3
 
 
-from os import path
-from ui import whatsTopUi
+from os   import path
 from time import sleep
-from src import (
+from ui   import whatsTopUi
+from src  import (
     cpu,
     gpu,
     mem,
@@ -12,7 +12,7 @@ from src import (
 )
 
 
-class WhatsTop():
+class WhatsTop(object):
 
     MEM_STAT: dict[str, str] = None
     GPU_STAT: dict[str, str] = None
@@ -21,16 +21,15 @@ class WhatsTop():
 
     def __init__(self) -> None:
         """initializing the building block of WhatsTop class."""
-
+        
         if path.exists("/proc"):
             self.cpu = cpu.CPU()
+            self.gpu = gpu.GPU()
             self.mem = mem.MEMORY()
             self.proc = proc.PROCESS()
         else:
             print("Error: This program only works on unix/linux based systems which supports /proc.")
             exit()
-
-        self.gpu = gpu.GPU()
 
         if not self.gpu.GPU_INFO["initializing"]:
             print("Warning: Gpu not initialized, Only nvidia based chips are supported.")
@@ -44,11 +43,11 @@ class WhatsTop():
         self.generateStatus()
         
     def setStatus(self,) -> None:
-        """setting the status to ui relater objects."""
+        """setting the status to ui relator objects."""
 
-        self.ui.setCpuStatus(status  = self.CPU_STAT)
-        self.ui.setMemStatus(status  = self.MEM_STAT)
-        self.ui.setGpuStatus(status  = self.GPU_STAT)
+        self.ui.setCpuStatus(status = self.CPU_STAT)
+        self.ui.setMemStatus(status = self.MEM_STAT)
+        self.ui.setGpuStatus(status = self.GPU_STAT)
         self.ui.setProcStatus(status = self.PROC_STAT)
         
     def generateStatus(self,) -> None:

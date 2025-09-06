@@ -24,7 +24,7 @@ class Ui(tkinter.Tk):
         self.rowColumnConfig()
         self.styleConfig()
         self.bindGrids()
-
+        
     def setSelectedProcess(self, selectedItem: str = "I001") -> None:
         self.selectedProcess = selectedItem
             
@@ -130,6 +130,8 @@ class Ui(tkinter.Tk):
     def setCpuStatus(self, status: list) -> None:
         """binding the cpu cores status to related graphical object."""
 
+        self.cpu["text"] = status[0]["model name"]
+        
         for core in status:
 
             iid = str(core['id'])

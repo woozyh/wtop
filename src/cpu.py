@@ -15,17 +15,14 @@ class CPU(object):
     }
     
     CPU_INFO: dict = {
-        "model name": "",
-        "cpu cores": "",
-    }
-    
-    CPU_CORES_INFO: dict = {
         "id": "",
         "frequency": "",
+        "cpu cores": "",
+        "model name": "",
         "utilization": "",
         "temperature": "",
     }
-
+    
     # getting the clock rate of the system. -> https://man7.org/linux/man-pages/man2/times.2.html
     SYSTEM_CLOCK_TICK = sysconf(sysconf_names['SC_CLK_TCK'])
 
@@ -129,7 +126,7 @@ class CPU(object):
         convertTemperature = lambda temperature: f"{int(temperature) / 1000: .0f}"    
         
         for core in range(int(self.CPU_INFO["cpu cores"])):
-            coreInfo = self.CPU_CORES_INFO.copy()
+            coreInfo = self.CPU_INFO.copy()
             
             coreInfo["id"]          = core
             coreInfo["frequency"]   = convertFrequency(self.setCoreFrequency(core))
